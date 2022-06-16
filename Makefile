@@ -16,3 +16,6 @@ tf-providers-lock:
 		-platform=linux_amd64
 	git add .terraform.lock.hcl
 	git commit -m "[auto] chore(terraform): Lock providers to .terraform.lock.hcl" .terraform.lock.hcl
+
+cost:
+	infracost breakdown --path . --show-skipped
