@@ -30,6 +30,9 @@ runcmd:
     curl -fsSL https://ins.oxs.cz/slu-linux-amd64.sh | sudo sh
     cp /html/index.html /var/www/html/index.html
 EOF
+  provisioner "local-exec" {
+    command = "slu wf tcp -a ${self.public_ip}:80 && curl -s ${self.public_ip}"
+  }
 }
 
 output "password2" {
