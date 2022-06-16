@@ -17,3 +17,9 @@ resource "aws_security_group" "allow-all" {
     ipv6_cidr_blocks = ["::/0"]
   }
 }
+
+locals {
+  DEFAULT_SECURITY_GROUPS = [
+    aws_security_group.allow-all.name,
+  ]
+}
