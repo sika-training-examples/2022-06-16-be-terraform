@@ -15,3 +15,8 @@ provider "aws" {
   access_key = var.aws_access_key
   secret_key = var.aws_secret_key
 }
+
+resource "aws_key_pair" "default" {
+  key_name   = "ondrejsika"
+  public_key = file("./ssh-keys/ondrejsika.pub")
+}
