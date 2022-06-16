@@ -5,7 +5,8 @@ resource "random_password" "example2-password" {
 }
 
 resource "aws_instance" "example2" {
-  ami           = data.aws_ami.debian11.id
+  # ami           = data.aws_ami.debian11.id
+  ami           = local.DEBIAN11
   instance_type = "t3.micro"
   security_groups = [
     aws_security_group.allow-all.name,
