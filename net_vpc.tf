@@ -41,3 +41,24 @@ resource "aws_subnet" "extra" {
   availability_zone = each.value.az
   cidr_block        = "10.0.${each.key}.0/24"
 }
+
+
+module "net--foo" {
+  source     = "./modules/net"
+  name       = "foo"
+  cidr_block = "10.0.0.0/16"
+  subnets = {
+    "10.0.1.0/24" = local.availability_zone_a
+    "10.0.2.0/24" = local.availability_zone_b
+  }
+}
+
+module "net--bar" {
+  source     = "./modules/net"
+  name       = "bar"
+  cidr_block = "10.0.0.0/16"
+  subnets = {
+    "10.0.1.0/24" = local.availability_zone_a
+    "10.0.2.0/24" = local.availability_zone_b
+  }
+}
