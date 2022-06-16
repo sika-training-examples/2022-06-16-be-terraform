@@ -16,3 +16,6 @@
 *.tfvars
 !*.EXAMPLE.tfvars
 *.tfplan
+
+# Infracost
+.infracost
